@@ -1,10 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Toprefinishing Admin</title>
+<!--================================================== Favicon ==================================================-->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<!--================================================ STYLESHEETS ================================================-->
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="style/business-frontpage.css" rel="stylesheet">
+<!-- Datatables.net css -->
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<!--================================================== SCRIPTS ==================================================-->
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Icon library CITE THIS??????-->
+<script src="https://kit.fontawesome.com/1f2bc43dbd.js" crossorigin="anonymous"></script>
+<!-- Datatables.net scripts -->
+<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <body>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navBar">
+    <div class="container">
+        <a class="navbar-brand" href="index.php#">
+            Dayside LLC
+            <span class="h4 hexagon">&#11041;</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item px-1">
+                    <a class="nav-link" href="index.php#services">
+                        Services We Provide
+                    </a>
+                </li>
+                <li class="nav-item my-auto px-1">
+                    <a class="badge badge-pill badge-warning" href="index.php#contact">
+                        Contact Us
+                    </a>
+                </li>
+                <li class="nav-item px-1">
+                    <a class="nav-link" href="index.php#aboutUs">
+                        About Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--================================================= Page Content ==================================================-->
+<div class="container">
+    <h2 class="text-center">Admin Portal</h2>
+    <hr>
+    <div class="row justify-content-center">
+        <!--======================== Manage Contacts ========================-->
+        <div class="col text-center p-5 bg-light m-1">
+            <i class="services fas fa-address-book fa-10x pb-2"></i>
+            <a class="btn btn-primary btn-block text-nowrap" href="adminContacts.php" role="button">
+                Manage Contacts  <i class="fas fa-pencil-alt"></i>
+            </a>
+        </div>
+        <!--======================== Manage Testimonials ========================-->
+        <div class="col text-center p-5 bg-light m-1">
+            <i class="services fas fa-quote-right fa-10x pb-2"></i>
+            <a class="btn btn-primary btn-block text-nowrap" href="adminTestimonials.php" role="button">
+                Manage Testimonials  <i class="fas fa-pencil-alt"></i>
+            </a>
+        </div>
+        <!--======================== Manage Bio ========================-->
+        <div class="col text-center p-5 bg-light m-1">
+            <i class="services fas fa-address-card fa-10x pb-2"></i>
+            <a class="btn btn-primary btn-block text-nowrap" href="adminBio.php" role="button">
+                Manage Bio  <i class="fas fa-pencil-alt"></i>
+            </a>
+        </div>
+        <!--======================== Manage Services ========================-->
+        <div class="col text-center p-5 bg-light m-1">
+            <i class="services fas fa-list-alt fa-10x pb-2"></i>
+            <a class="btn btn-primary btn-block text-nowrap" href="adminServices.php" role="button">
+                Manage Services  <i class="fas fa-pencil-alt"></i>
+            </a>
+        </div>
+    </div>
+    <!--======================== Logout Button ========================-->
+    <div class="text-center m-2">
+        <a href="includes/adminLogout.php" class="btn btn-info btn-lg">
+            Log out <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+</div>
 </body>
-</html>

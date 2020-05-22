@@ -1,0 +1,159 @@
+/*!
+ * Start Bootstrap - Busines Frontpage (https://startbootstrap.com/template-overviews/business-frontpage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-business-frontpage/blob/master/LICENSE)
+ */
+
+/*
+GREY: rgb(128,128,128);
+YELLOW: rgb(255, 202, 0);
+*/
+
+
+/****************************************** DIVIDER STYLES ******************************************/
+.divider-custom {
+  margin: 1.25rem 0 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divider-custom .divider-custom-line {
+  width: 100%;
+  /*max-width: 25rem;*/
+  height: 0.10rem;
+  background-color: #343a40;
+  border-radius: 1rem;
+  border-color: #343a40 !important;
+}
+.divider-custom .divider-custom-line:first-child {
+  margin-right: 1rem;
+}
+.divider-custom .divider-custom-line:last-child {
+  margin-left: 1rem;
+}
+.divider-custom {
+  color: #343a40 !important;
+  font-size: 2rem;
+}
+.divider-custom.divider-light .divider-custom-line {
+  background-color: #fff;
+}
+.divider-custom.divider-light {
+  color: #fff !important;
+}
+/****************************************** BUTTON STYLES ******************************************/
+
+.btn{
+  background-color: rgb(128,128,128);
+  border-color:  rgb(128,128,128);
+}
+.btn:hover,
+.btn:active{
+  background-color: rgb(255,202,0);
+  border-color:  rgb(255,202,0);
+}
+
+/************************************* FONT AWESOME ICON STYLES *************************************/
+
+/*services icons*/
+i.services{
+  color: rgb(255,202,0);
+}
+
+/*admin page link in footer*/
+.link{
+  color: rgb(128,128,128);
+  text-decoration: none!important;
+}
+.link:hover{
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+}
+
+/*social media icons in footer*/
+.social{
+  color: rgb(128,128,128);
+  /*background-color: #343a40;
+  border: 2px solid rgb(128,128,128);
+  border-radius: .3rem;
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+  justify-content: center;
+  align-items: center;*/
+}
+.social:hover{
+  color: white;
+  text-decoration: none!important;
+  /*background-color: white;
+  border: 2px solid white;
+  border-radius: 100%;
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+  justify-content: center;
+  align-items: center;*/
+}
+/************************************* OTHER STYLES (alphabetically)*************************************/
+
+body{
+  padding-top: 56px;
+}
+
+.carousel-item{
+  background-color: rgb(255, 202, 0);
+}
+
+/*error/thank you messages for buttons*/
+.err, .errSubscribe, .thankYou {
+  visibility: hidden;
+}
+
+/* style for display:none error messages in small form */
+.errEitherRequired {
+  display: none;
+}
+
+@font-face { /*for the header/footer*/
+  font-family: logoFont;
+  src: url(../fonts/syatm2.otf);
+}
+
+footer{
+  margin-top: 3em;
+}
+
+#header{
+  background-color: rgb(255,202,0);
+}
+
+#header h1, footer h1{
+  font-family: logoFont;
+}
+
+.hexagon{
+  color: white;
+}
+
+img,
+.carousel-inner,
+.carousel-item{
+  border-radius: .3rem;
+}
+
+/* for indexTEST.php */
+#outsideContainer{
+  background-image: url("https://media.istockphoto.com/videos/beautiful-white-hexagons-on-surface-morphing-in-seamless-3d-animation-video-id966407426?s=640x640");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pt-6 {
+  padding-top: 3.5rem;
+}
+
+
+
