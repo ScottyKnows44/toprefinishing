@@ -10,16 +10,6 @@
     <script src="https://kit.fontawesome.com/bb7ac2ffe5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php
-//include_once ('views/header.html');
-//?>
-<!--header-->
-<!-- try to make it work as an include-->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/bb7ac2ffe5.js" crossorigin="anonymous"></script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navBar">
     <div class="container">
         <a class="navbar-brand" href="home.php">
@@ -29,7 +19,6 @@
         <a href="admin" class="navbar-btn btn pull-right"><i class="fas fa-user-cog" style="font-size: 30px">Admin</i></a>
     </div>
 </nav>
-<!--end of header-->
 <div class="container mt-5">
     <h1 id="aboutUs">About Us</h1>
         <p class="m-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis accumsan nisl quis imperdiet. Duis blandit, dolor at molestie posuere,
@@ -102,8 +91,8 @@
 
         </p>
 
-        <a href="admin" class="navbar-btn btn pull-right">
-            <i class="fas fa-user-cog" style="font-size: 30px">Admin</i>
+
+
     </div>
 </body>
 </html>
