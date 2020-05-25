@@ -37,38 +37,41 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item px-1">
+                <li class="nav-item my-auto px-1">
                     <a class="nav-link" href="#">
                         Login
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>
 </nav>
-<!--================================================= Page Content ==================================================-->
 <div class="container">
-    <h2 class="text-center">TopRefinishing Admin Page</h2>
-    <hr>
-    <div class="row justify-content-center">
-        <div class="col text-center p-5 m-1">
-            <p class="services fas fa-tools fa-10x pb-2"></p>
-            <a class="btn btn-primary btn-block text-nowrap" href="clients" role="button">
-                Manage Contacts
-            </a>
-        </div>
-        <div class="col text-center p-5 m-1">
-            <p class="services fas fa-toolbox fa-10x pb-2"></p>
-            <a class="btn btn-primary btn-block text-nowrap" href="services" role="button">
-                Manage Services
-            </a>
-        </div>
 
-    </div>
-    <div class="text-center m-2">
-        <a class="btn btn-info btn-lg">
-            Log out
-        </a>
-    </div>
+    <h3 class="mt-2">Client Information Table</h3>
+
+    <table id="student-table">
+        <thead>
+        <tr>
+            <th>SID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Preferred Contact</th>
+        </tr>
+        </thead>
+    </table>
+    <p><a href="{{ @BASE }}">Admin Home page</a></p>
 </div>
+
+<script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $('#student-table').DataTable();
+</script>
 </body>
+</html>
