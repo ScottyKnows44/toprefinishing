@@ -24,4 +24,32 @@ class Database
 
     }
 
+    function addService($dbh)
+    {
+        //adds to DB
+        $sql = "INSERT INTO services(serviceType) VALUES (:service)";
+        $statement = $dbh->prepare($sql);
+        $service = "woodcutting";
+
+        $statement->bindParam('service', $service);
+        $statement->execute();
+
+        //shows all from db
+
+        $sql = "SELECT * FROM services";
+        $statement = $dbh->prepare($sql);
+
+        $result = $statement->execute();
+
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($result as $row){
+            echo"<p>".$row['services_ID']." - ".$row['serviceType']. "</p>";
+        }
+
+
+
+
+    }
+
 }

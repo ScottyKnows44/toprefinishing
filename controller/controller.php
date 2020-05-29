@@ -32,6 +32,9 @@ class controller
 
     public function services()
     {
+        $connect = $this->_database->connect();
+        $this->_database->addService($connect);
+
         $view = new Template();
         echo $view->render('views/services.html');
     }
