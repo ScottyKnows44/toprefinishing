@@ -28,8 +28,7 @@
         maximus, nulla eros gravida mauris, at condimentum ante erat sed nisl. Mauris sodales congue scelerisque. Ut eu consequat mi, eget rhoncus nibh. Aenean
         in mi massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec quis erat eu nisi malesuada feugiat ut
         in quam.</p>
-    <div class="row">
-        <div class="col">
+    <div class="container text-center">
     <h1 id="services">Services</h1>
     <p>
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -37,24 +36,22 @@
         </a>
     </p>
     <div class="collapse" id="collapseExample">
-        <ul>
-            <li>Bathtub</li>
-            <li>Countertop refinishing</li>
-            <li>Tile Surround</li>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Bathtub</li>
+            <li class="list-group-item">Countertop refinishing</li>
+            <li class="list-group-item">Tile Surround</li>
         </ul>
     </div>
-        </div>
-    <div class="col">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/placeholder.jpg" class="d-block w-100" alt="...">
+                    <img src="images/placeholder.jpg" class="d-block w-50 mx-auto" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/placeholder2.jpg" class="d-block w-100" alt="...">
+                    <img src="images/placeholder2.jpg" class="d-block w-50 mx-auto" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/placeholder3.jpg" class="d-block w-100" alt="...">
+                    <img src="images/placeholder3.jpg" class="d-block w-50 mx-auto" alt="...">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -66,7 +63,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    </div>
+
     </div>
 </div>
 <hr>
@@ -82,7 +79,15 @@
         <label for="contactMethod">Contact method</label><br>
         <input type="radio" id="contactMethod" name="email"class="m-2">Email
         <input type="radio" name="phone" class="m-2">Phone<br>
+        <label for="services">Services: </label>
+        <select class="form-control">
+            <option>Select--</option>
+            <option name="bathtub" value="bathtub">Bathtub</option>
+            <option name="countertop" value="countertop">Countertop Refinishing</option>
+            <option name="tilesurround" value="tilesurround">Tile Surround</option>
+        </select>
         <button type="submit" class="btn-primary mt-5">Submit</button>
+
     </form>
 </div>
 <div class="navbar navbar-default navbar-fixed-bottom bg-dark">
