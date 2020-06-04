@@ -3,6 +3,7 @@
 
 class Database
 {
+    private $_dbh;
 
     function connect()
     {
@@ -15,7 +16,7 @@ class Database
                 require '/home/aatadina/config.php';
             }
             $dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-            echo 'Connected to Database!';
+            //echo 'Connected to Database!';
             return $dbh;
         } catch (PDOException $e){
             echo $e->getMessage();
@@ -26,16 +27,31 @@ class Database
 
     function addService($dbh)
     {
-        //adds to DB
         $sql = "INSERT INTO services(serviceType) VALUES (:service)";
         $statement = $dbh->prepare($sql);
         $service = "woodcutting";
-
         $statement->bindParam('service', $service);
         $statement->execute();
+    }
 
-        //shows all from db
+    function addClient($dbh){
+        $sql ="INSERT INTO client(name, phone, email, contactMethod) VALUES (:name, :phone, :email, :contactMethod)";
+        $statement = $dbh->prepare($sql);
+        $name = "Billy Bob";
+        $phone = "253-123-1234";
+        $email = "Fakeemailsd@jaiu.com";
+        $contactMethod = "email";
 
+        $statement->bindParam('name', $name);
+        $statement->bindParam('phone', $phone);
+        $statement->bindParam('email', $email);
+        $statement->bindParam('contactMethod', $contactMethod);
+
+        $statement->execute();
+    }
+
+    function getServices($dbh)
+    {
         $sql = "SELECT * FROM services";
         $statement = $dbh->prepare($sql);
 
@@ -43,13 +59,16 @@ class Database
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($result as $row){
-            echo"<p>".$row['services_ID']." - ".$row['serviceType']. "</p>";
-        }
+        return $result;
+    }
 
-
-
-
+    function showClients($dbh)
+    {
+        $sql = "SELECT * FROM client";
+        $statement = $dbh->prepare($sql);
+        $result = $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 
 }

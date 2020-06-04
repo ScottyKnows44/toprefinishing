@@ -5,12 +5,13 @@ require_once('vendor/autoload.php');
 require_once("model/Database.php");
 //Instantiate the F3 Base class
 $f3 = Base::instance();
+session_start();
 
 $database = new Database();
 $controller = new controller($f3, $database);
 
 //run $f3
-$f3->route('GET / ', function(){
+$f3->route('GET|POST / ', function(){
     $GLOBALS['controller']->home();
 });
 

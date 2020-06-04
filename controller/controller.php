@@ -20,20 +20,27 @@ class controller
 
     public function admin()
     {
+
         $view = new Template();
         echo $view->render('views/admin.html');
     }
 
     public function clients()
     {
+        $connect = $this->_database->connect();
+        $result = $GLOBALS['database']->showClients($connect);
+        $this->_f3->set('clients', $result);
         $view = new Template();
         echo $view->render('views/clients.html');
     }
 
     public function services()
     {
+
         $connect = $this->_database->connect();
-        $this->_database->addService($connect);
+        $result = $GLOBALS['database']->getServices($connect);
+
+        $this->_f3->set('services', $result);
 
         $view = new Template();
         echo $view->render('views/services.html');

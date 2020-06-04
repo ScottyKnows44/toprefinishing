@@ -18,7 +18,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navBar">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ @BASE }}">
             TopRefinishing
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,6 @@
 <div class="container">
 
     <h3 class="mt-2">Client Information Table</h3>
-
     <table id="student-table">
         <thead>
         <tr>
@@ -50,7 +49,16 @@
             <th>Phone</th>
             <th>Preferred Contact</th>
         </tr>
-        </thead>
+        <repeat group="{{ @clients }}" value="{{ @client }}">
+            <tr>
+                <td>{{ @client['client_ID']}}</td>
+                <td>{{ @client['name'] }}</td>
+                <td>{{ @client['phone'] }}</td>
+                <td>{{ @client['email'] }}</td>
+                <td>{{ @client['contactMethod'] }}</td>
+            </tr>
+        </repeat>
+
     </table>
     <p><a href="admin">Admin Home page</a></p>
 </div>
