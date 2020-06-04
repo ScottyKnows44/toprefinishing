@@ -71,4 +71,14 @@ class Database
         return $result;
     }
 
+    function updateClient($dbh, $id, $name, $phone, $email, $contactMethod){
+        $sql = "UPDATE clients
+                SET name = '$name',  phone = '$phone', email = '$email', phone = '$phone', contactMethod = '$contactMethod'
+                WHERE client_ID ='$id'";
+
+        $statement = $dbh->prepare($sql);
+        $result = $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
