@@ -20,9 +20,19 @@ class controller
 
     public function admin()
     {
-
         $view = new Template();
         echo $view->render('views/admin.html');
+    }
+
+    public function bidding()
+    {
+        $view = new Template();
+        echo $view->render('views/biddingPage.html');
+    }
+    public function confirmation()
+    {
+        $view = new Template();
+        echo $view->render('views/thankYouPage.html');
     }
 
     public function clients()
