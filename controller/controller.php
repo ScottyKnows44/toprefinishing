@@ -55,6 +55,33 @@ class controller
         $view = new Template();
         echo $view->render('views/services.html');
     }
+    public function login(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $correctUser ='admin';
+            $correctPass='@dm1n';
+            if($correctUser!=$_POST['username']){
+                echo "Invalid Username";
+            }
+            if($correctPass!=$_POST['password']){
+                echo "invalid Password";
+            }
+            if($correctUser=$_POST['username']&&$correctPass=$_POST['password']) {
+                session_start();
+                $_SESSION['loggedIn']=true;
+                $this->_f3->reroute('/admin');
+            }
+        }
+        $view = new Template();
+        echo $view->render('views/login.html');
+    }
+
+    public function logout(){
+
+        session_start();
+        session_destroy();
+        $this->_f3->reroute('/');
+
+    }
 
 
 }

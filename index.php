@@ -34,5 +34,10 @@ $f3->route('GET /clients ', function(){
 $f3->route('GET /services', function(){
     $GLOBALS['controller']->services();
 });
-
+$f3->route('GET|POST /login', function(){
+    $GLOBALS['controller']->login();
+});
+$f3 ->route("GET /logout", function (){
+    $GLOBALS['controller']->logout();
+});
 $f3-> run();
