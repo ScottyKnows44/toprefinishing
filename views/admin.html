@@ -10,12 +10,17 @@
     <link href="style/business-frontpage.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1f2bc43dbd.js" crossorigin="anonymous"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
+<check if="{{isset(@SESSION.login)}}">
+    <true>
+        {{@f3->reroute('login')}}
+    </true>
+</check>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navBar">
     <div class="container">
         <a class="navbar-brand" href="{{ @BASE }}">
@@ -28,7 +33,7 @@
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item px-1">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="login">
                         Login
                     </a>
                 </li>
@@ -56,7 +61,7 @@
 
     </div>
     <div class="text-center m-2">
-        <a class="btn btn-info btn-lg">
+        <a class="btn btn-info btn-lg" href="logout">
             Log out
         </a>
     </div>
