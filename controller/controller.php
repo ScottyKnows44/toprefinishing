@@ -20,6 +20,9 @@ class controller
 
     public function admin()
     {
+        if(!isset($_SESSION['loggedIn'])){
+            $this->_f3->reroute("/login");
+        }
         $view = new Template();
         echo $view->render('views/admin.html');
     }
@@ -37,6 +40,9 @@ class controller
 
     public function clients()
     {
+        if(!isset($_SESSION['loggedIn'])){
+            $this->_f3->reroute("/login");
+        }
         $connect = $this->_database->connect();
         $result = $GLOBALS['database']->showClients($connect);
         $this->_f3->set('clients', $result);
@@ -46,7 +52,9 @@ class controller
 
     public function services()
     {
-
+        if(!isset($_SESSION['loggedIn'])){
+            $this->_f3->reroute("/login");
+        }
         $connect = $this->_database->connect();
         $result = $GLOBALS['database']->getServices($connect);
 
