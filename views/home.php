@@ -12,7 +12,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navBar">
     <div class="container">
-        <a class="navbar-brand" href="{{@base}}">
+        <a class="navbar-brand" href="{{ @BASE }}">
             Top Refinishing
             <i class="fas fa-city"></i>
         </a>
@@ -21,37 +21,36 @@
 </nav>
 <div class="container mt-5">
     <h1 id="aboutUs">About Us</h1>
-    <p class="m-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis accumsan nisl quis imperdiet. Duis blandit, dolor at molestie posuere,
+        <p class="m-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis accumsan nisl quis imperdiet. Duis blandit, dolor at molestie posuere,
         quam orci venenatis turpis, ac hendrerit nulla magna quis odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
         himenaeos. Suspendisse cursus at nulla molestie imperdiet. Etiam lacinia id sapien id mattis. Etiam eleifend risus ut nisi lacinia, ac interdum elit
         luctus. Aenean eget viverra metus. Quisque dignissim scelerisque mi, non volutpat nunc imperdiet pellentesque. Sed lacinia, ligula tristique finibus
         maximus, nulla eros gravida mauris, at condimentum ante erat sed nisl. Mauris sodales congue scelerisque. Ut eu consequat mi, eget rhoncus nibh. Aenean
         in mi massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec quis erat eu nisi malesuada feugiat ut
         in quam.</p>
-    <div class="container text-center">
-        <h1 id="services">Services</h1>
-        <p>
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                <i class="fas fa-wrench" style="font-size: 4em"></i>
-            </a>
-        </p>
-        <div class="collapse" id="collapseExample">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Bathtub</li>
-                <li class="list-group-item">Countertop refinishing</li>
-                <li class="list-group-item">Tile Surround</li>
-            </ul>
+    <div class="row">
+        <div class="col">
+    <h1 id="services">Services</h1>
+
+    <div class="list-group">
+        <ul>
+            <li>Bathtub</li>
+            <li>Countertop refinishing</li>
+            <li>Tile Surround</li>
+        </ul>
+    </div>
         </div>
+    <div class="col">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/placeholder.jpg" class="d-block w-50 mx-auto" alt="...">
+                    <img src="images/placeholder.jpg" class="shadow p-3 w-100 rounded-sm" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/placeholder2.jpg" class="d-block w-50 mx-auto" alt="...">
+                    <img src="images/placeholder2.jpg" class="shadow p-3 w-100 rounded-sm" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/placeholder3.jpg" class="d-block w-50 mx-auto" alt="...">
+                    <img src="images/placeholder3.jpg" class="shadow p-3 w-100 rounded-sm" alt="...">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -63,7 +62,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
+    </div>
     </div>
 </div>
 <hr>
@@ -77,17 +76,9 @@
         <label for="phone">Phone number </label>
         <input type="text" id="phone" name="phone" class="form-control"><br>
         <label for="contactMethod">Contact method</label><br>
-        <input type="radio" id="contactMethod" name="contact"class="m-2">Email
-        <input type="radio" name="contact" class="m-2">Phone<br>
-        <label for="services">Services: </label>
-        <select class="form-control">
-            <option>Select--</option>
-            <option name="bathtub" value="bathtub">Bathtub</option>
-            <option name="countertop" value="countertop">Countertop Refinishing</option>
-            <option name="tilesurround" value="tilesurround">Tile Surround</option>
-        </select>
+        <input type="radio" id="contactMethod" name="email"class="m-2">Email
+        <input type="radio" name="phone" class="m-2">Phone<br>
         <button type="submit" class="btn-primary mt-5">Submit</button>
-
     </form>
 </div>
 <div class="navbar navbar-default navbar-fixed-bottom bg-dark">

@@ -5,10 +5,10 @@ require_once('vendor/autoload.php');
 require_once("model/Database.php");
 //Instantiate the F3 Base class
 $f3 = Base::instance();
+$validator = new Validation();
 session_start();
-
 $database = new Database();
-$controller = new controller($f3, $database);
+$controller = new controller($f3, $database, $validator);
 
 //run $f3
 $f3->route('GET|POST / ', function(){
