@@ -23,11 +23,11 @@ $f3->route('GET /clients ', function(){
     $GLOBALS['controller']->clients();
 });
 
-$f3->route('GET /clients ', function(){
+$f3->route('GET /bid ', function(){
     $GLOBALS['controller']->bidding();
 });
 
-$f3->route('GET /clients ', function(){
+$f3->route('GET /thankYou ', function(){
     $GLOBALS['controller']->confirmation();
 });
 
