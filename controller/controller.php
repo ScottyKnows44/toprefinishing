@@ -67,6 +67,10 @@ class controller
 
     public function bidding()
     {
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $_SESSION['form']->setDescription($_POST['description']);
+            $_SESSION['form']->setPrice($_POST['price']);
+        }
         $view = new Template();
         echo $view->render('views/biddingPage.html');
     }
