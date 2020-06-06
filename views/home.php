@@ -63,7 +63,6 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
     </div>
 </div>
 <hr>
@@ -80,24 +79,19 @@
         <input type="radio" id="contactMethod" name="contact"class="m-2">Email
         <input type="radio" name="contact" class="m-2">Phone<br>
         <label for="services">Services: </label>
-        <select class="form-control">
-            <option>Select--</option>
+        <select name="services" class="form-control">
+            <option name="services[]">Select--</option>
             <option name="services[]" value="bathtub">Bathtub</option>
             <option name="services[]" value="countertop">Countertop Refinishing</option>
             <option name="services[]" value="tilesurround">Tile Surround</option>
         </select>
         <button type="submit" class="btn-primary mt-5">Submit</button>
-
     </form>
 </div>
 <div class="navbar navbar-default navbar-fixed-bottom bg-dark">
     <div class="container">
         <p class="navbar-text pull-left">
-
         </p>
-
-
-
     </div>
 </body>
 </html>

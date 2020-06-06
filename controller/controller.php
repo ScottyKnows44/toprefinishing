@@ -17,12 +17,13 @@ class controller
     public function home()
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            var_dump($_POST);
             //set one call
             $name=$_POST['name'];
             $email=$_POST['email'];
             $phone=$_POST['phone'];
             $contact=$_POST['contact'];
-            $services=$_POST['services[]'];
+            $services=$_POST['services'];
             //set sticky
             $_SESSION['name']=$name;
             $_SESSION['email']=$email;
@@ -43,8 +44,8 @@ class controller
             }
             if(empty($this->_f3->get('errors'))){
                 if($bid){
-                    $this->_f3->reroute('/bids');
                     $_SESSION['form']=new Bid($name,$email,$phone,$contact);
+                    $this->_f3->reroute('/bid');
                 }
                 else{
                     $_SESSION['form'] = new Client($name,$email,$phone,$contact);
@@ -54,6 +55,7 @@ class controller
         }
         $view = new Template();
         echo $view->render('views/home.php');
+        var_dump($_POST);
     }
 
     public function admin()
@@ -68,14 +70,23 @@ class controller
     public function bidding()
     {
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $_SESSION['form']->setDescription($_POST['description']);
-            $_SESSION['form']->setPrice($_POST['price']);
+            if(!empty($_POST['description'])){
+                $_SESSION['form']->setDescription($_POST['description']);
+            }
+            if(!empty($_POST['price'])){
+                $_SESSION['form']->setPrice($_POST['price']);
+            }
+
+            $this->_f3->reroute("/thankYou");
+
         }
         $view = new Template();
         echo $view->render('views/biddingPage.html');
     }
     public function confirmation()
     {
+
+        print_r($_SESSION['form']);
         $view = new Template();
         echo $view->render('views/thankYouPage.html');
     }
