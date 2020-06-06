@@ -5,15 +5,53 @@ class controller
 {
     private $_f3;
     private $_database;
+    private $_validator;
 
-    public function __construct($f3, $database)
+    public function __construct($f3, $database,$validator)
     {
         $this->_f3 = $f3;
         $this->_database = $database;
+        $this->_validator=$validator;
     }
 
     public function home()
     {
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            //set one call
+            $name=$_POST['name'];
+            $email=$_POST['email'];
+            $phone=$_POST['phone'];
+            $contact=$_POST['contact'];
+            $services=$_POST['services[]'];
+            //set sticky
+            $_SESSION['name']=$name;
+            $_SESSION['email']=$email;
+            $_SESSION['phone']=$phone;
+            $_SESSION['contact']=$contact;
+            if(!empty($services)){
+                $_SESSION['services']=$services;
+                $bid=true;
+            }
+            if(empty($name) || !$this->_validator->validName($name)){
+                $this->_f3->set('errors["name"]', "Please choose a listed indoor activity");
+            }
+            if(empty($email) || !$this->_validator->ValidEmail($email)){
+                $this->_f3->set('errors["email"]', "Please choose a listed indoor activity");
+            }
+            if(empty($phone) || !$this->_validator->validPhone($phone)){
+                $this->_f3->set('errors["phone"]', "Please choose a listed indoor activity");
+            }
+            if(empty($this->_f3->get('errors'))){
+                if($bid){
+                    $this->_f3->reroute('/bids');
+                    $_SESSION['form']=new Bid($name,$email,$phone,$contact);
+                }
+                else{
+                    $_SESSION['form'] = new Client($name,$email,$phone,$contact);
+                    $this->_f3->reroute('/thankYou');
+                }
+            }
+        }
         $view = new Template();
         echo $view->render('views/home.php');
     }
