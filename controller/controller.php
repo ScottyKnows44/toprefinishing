@@ -17,7 +17,6 @@ class controller
     public function home()
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            var_dump($_POST);
             //set one call
             $name=$_POST['name'];
             $email=$_POST['email'];
@@ -29,22 +28,26 @@ class controller
             $_SESSION['email']=$email;
             $_SESSION['phone']=$phone;
             $_SESSION['contact']=$contact;
+
             if(!empty($services)){
                 $_SESSION['services']=$services;
+
                 $bid=true;
+
             }
             if(empty($name) || !$this->_validator->validName($name)){
-                $this->_f3->set('errors["name"]', "Please choose a listed indoor activity");
+                $this->_f3->set('errors["name"]', "Please type in your name");
             }
             if(empty($email) || !$this->_validator->ValidEmail($email)){
-                $this->_f3->set('errors["email"]', "Please choose a listed indoor activity");
+                $this->_f3->set('errors["email"]', "Please type a valid email");
             }
             if(empty($phone) || !$this->_validator->validPhone($phone)){
-                $this->_f3->set('errors["phone"]', "Please choose a listed indoor activity");
+                $this->_f3->set('errors["phone"]', "Please type a valid phone number");
             }
             if(empty($this->_f3->get('errors'))){
-                if($bid){
-                    $_SESSION['form']=new Bid($name,$email,$phone,$contact);
+
+                if(isset($bid)){
+                    $_SESSION['form']= new Bid($name,$email,$phone,$contact);
                     $this->_f3->reroute('/bid');
                 }
                 else{
@@ -55,7 +58,6 @@ class controller
         }
         $view = new Template();
         echo $view->render('views/home.php');
-        var_dump($_POST);
     }
 
     public function admin()
@@ -85,6 +87,12 @@ class controller
     }
     public function confirmation()
     {
+
+        if($_SESSION['form'] instanceof Bid){
+            $GLOBALS['database']->addClient($_SESSION['form']);
+        } else{
+            $GLOBALS['database']->addClient($_SESSION['form']);
+        }
 
         print_r($_SESSION['form']);
         $view = new Template();

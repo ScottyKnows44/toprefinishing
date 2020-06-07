@@ -71,10 +71,25 @@
     <form method="post" action="#">
         <label for="name">Name </label>
         <input type="text" id="name" name="name" class="form-control"><br>
+        <span class="err">
+                <check if="{{ isset(@errors['name']) }}">
+                     {{ @errors['name'] }}<br>
+                </check>
+            </span>
         <label for="email">Email </label>
         <input type="text" id="email" name="email" class="form-control"><br>
+        <span class="err">
+                <check if="{{ isset(@errors['email']) }}">
+                     {{ @errors['email'] }}<br>
+                </check>
+            </span>
         <label for="phone">Phone number </label>
         <input type="text" id="phone" name="phone" class="form-control"><br>
+        <span class="err">
+                <check if="{{ isset(@errors['phone']) }}">
+                     {{ @errors['phone'] }}<br>
+                </check>
+            </span>
         <label for="contactMethod">Contact method</label><br>
         <input type="radio" id="contactMethod" name="contact"class="m-2">Email
         <input type="radio" name="contact" class="m-2">Phone<br>

@@ -25,27 +25,34 @@ class Database
 
     }
 
-    function addService($dbh)
+    function addService($dbh, $service)
     {
         $sql = "INSERT INTO services(serviceType) VALUES (:service)";
         $statement = $dbh->prepare($sql);
-        $service = "woodcutting";
+
         $statement->bindParam('service', $service);
+        $statement->execute();
+    }
+
+    function addToBidTable($dbh){
+        $sql ="INSERT INTO bids(client_ID, service_ID, description, price) VALUES (:name, :service, :description, :price)";
+        $statement = $dbh->prepare($sql);
+
+        $statement->bindParam('price', $dbh->getPrice());
+        $statement->bindParam('description', $dbh->getDescription());
+
         $statement->execute();
     }
 
     function addClient($dbh){
         $sql ="INSERT INTO client(name, phone, email, contactMethod) VALUES (:name, :phone, :email, :contactMethod)";
-        $statement = $dbh->prepare($sql);
-        $name = "Billy Bob";
-        $phone = "253-123-1234";
-        $email = "Fakeemailsd@jaiu.com";
-        $contactMethod = "email";
 
-        $statement->bindParam('name', $name);
-        $statement->bindParam('phone', $phone);
-        $statement->bindParam('email', $email);
-        $statement->bindParam('contactMethod', $contactMethod);
+        $statement = $dbh->prepare($sql);
+
+        $statement->bindParam('name', $dbh->getName());
+        $statement->bindParam('phone', $dbh->getPhone());
+        $statement->bindParam('email', $dbh->getEmail());
+        $statement->bindParam('contactMethod', $dbh->getContactMethod());
 
         $statement->execute();
     }

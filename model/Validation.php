@@ -5,7 +5,7 @@ class Validation
 {
     function validName($text)
     {
-        return ctype_alpha($text);
+        return !empty($text);
     }
     function validPhone($num)
     {
