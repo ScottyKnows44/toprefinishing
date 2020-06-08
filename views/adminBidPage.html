@@ -39,32 +39,28 @@
 </nav>
 <div class="container">
 
-    <h3 class="mt-2">Client Information Table</h3>
+    <h3 class="mt-2">Client Information Bid Table</h3>
     <table id="student-table">
         <thead>
         <tr>
-            <th>SID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Preferred Contact</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th>Client</th>
+            <th>Service</th>
+            <th>Description</th>
+            <th>Price</th>
         </tr>
         <repeat group="{{ @clients }}" value="{{ @client }}">
             <tr>
                 <td>{{ @client['client_ID']}}</td>
-               <td> <a href="bidTable">{{ @client['name'] }}</a></td>
+                <td>{{ @client['name'] }}</td>
                 <td>{{ @client['phone'] }}</td>
                 <td>{{ @client['email'] }}</td>
-                <td>{{ @client['contactMethod'] }}</td>
-                <td><button>Update</button></td>
-                <td><button>Delete</button></td>
+
             </tr>
         </repeat>
 
     </table>
     <p><a href="admin">Admin Home page</a></p>
+    <p><a href="clients">Back to clients page</a></p>
 </div>
 
 <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>

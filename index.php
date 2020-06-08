@@ -23,6 +23,10 @@ $f3->route('GET /clients ', function(){
     $GLOBALS['controller']->clients();
 });
 
+$f3->route('GET /bidTable ', function(){
+    $GLOBALS['controller']->allBids();
+});
+
 $f3->route('GET|POST /bid ', function(){
     $GLOBALS['controller']->bidding();
 });

@@ -5,6 +5,12 @@ class Database
 {
     private $_dbh;
 
+    function __construct()
+    {
+        $this->connect();
+
+    }
+
     function connect()
     {
         try{
@@ -15,9 +21,10 @@ class Database
             } else if($_SERVER['USER'] == 'aatadina'){
                 require '/home/aatadina/config.php';
             }
-            $dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+            $this->_dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+            return $this->_dbh;
             //echo 'Connected to Database!';
-            return $dbh;
+
         } catch (PDOException $e){
             echo $e->getMessage();
             return;
@@ -25,18 +32,19 @@ class Database
 
     }
 
-    function addService($dbh, $service)
+    function addService($service)
     {
+        //$this->_dbh= $this->connect();
         $sql = "INSERT INTO services(serviceType) VALUES (:service)";
-        $statement = $dbh->prepare($sql);
+        $statement = $this->_dbh->prepare($sql);
 
-        $statement->bindParam('service', $service);
+        $statement->bindParam('service', $service->getServices());
         $statement->execute();
     }
 
     function addToBidTable($dbh){
         $sql ="INSERT INTO bids(client_ID, service_ID, description, price) VALUES (:name, :service, :description, :price)";
-        $statement = $dbh->prepare($sql);
+        $statement = $this->_dbh->prepare($sql);
 
         $statement->bindParam('price', $dbh->getPrice());
         $statement->bindParam('description', $dbh->getDescription());
@@ -44,23 +52,26 @@ class Database
         $statement->execute();
     }
 
-    function addClient($dbh){
+    function addClient($client){
+        //$this->_dbh= $this->connect();
+
         $sql ="INSERT INTO client(name, phone, email, contactMethod) VALUES (:name, :phone, :email, :contactMethod)";
 
-        $statement = $dbh->prepare($sql);
+        $statement = $this->_dbh->prepare($sql);
 
-        $statement->bindParam('name', $dbh->getName());
-        $statement->bindParam('phone', $dbh->getPhone());
-        $statement->bindParam('email', $dbh->getEmail());
-        $statement->bindParam('contactMethod', $dbh->getContactMethod());
+        $statement->bindParam('name', $client->getName());
+        $statement->bindParam('phone', $client->getPhone());
+        $statement->bindParam('email', $client->getEmail());
+        $statement->bindParam('contactMethod', $client->getContactMethod());
 
         $statement->execute();
     }
 
-    function getServices($dbh)
+    function getServices()
     {
+        //$this->_dbh= $this->connect();
         $sql = "SELECT * FROM services";
-        $statement = $dbh->prepare($sql);
+        $statement = $this->_dbh->prepare($sql);
 
         $result = $statement->execute();
 
@@ -69,23 +80,15 @@ class Database
         return $result;
     }
 
-    function showClients($dbh)
+    function showClients()
     {
+        //$this->_dbh= $this->connect();
+
         $sql = "SELECT * FROM client";
-        $statement = $dbh->prepare($sql);
+        $statement = $this->_dbh->prepare($sql);
         $result = $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $result;
-    }
-
-    function updateClient($dbh, $id, $name, $phone, $email, $contactMethod){
-        $sql = "UPDATE clients
-                SET name = '$name',  phone = '$phone', email = '$email', phone = '$phone', contactMethod = '$contactMethod'
-                WHERE client_ID ='$id'";
-
-        $statement = $dbh->prepare($sql);
-        $result = $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }

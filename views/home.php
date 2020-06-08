@@ -95,7 +95,7 @@
         <input type="radio" name="contact" class="m-2">Phone<br>
         <label for="services">Services: </label>
         <select name="services" class="form-control">
-            <option name="services[]">Select--</option>
+            <option name="services[]" value="" >Select--</option>
             <option name="services[]" value="bathtub">Bathtub</option>
             <option name="services[]" value="countertop">Countertop Refinishing</option>
             <option name="services[]" value="tilesurround">Tile Surround</option>

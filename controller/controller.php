@@ -7,11 +7,11 @@ class controller
     private $_database;
     private $_validator;
 
-    public function __construct($f3, $database,$validator)
+    public function __construct($f3, $database, $validator)
     {
         $this->_f3 = $f3;
         $this->_database = $database;
-        $this->_validator=$validator;
+        $this->_validator = $validator;
     }
 
     public function home()
@@ -87,10 +87,11 @@ class controller
     }
     public function confirmation()
     {
-
         if($_SESSION['form'] instanceof Bid){
+            $connect = $this->_database->connect();
             $GLOBALS['database']->addClient($_SESSION['form']);
         } else{
+            $connect = $this->_database->connect();
             $GLOBALS['database']->addClient($_SESSION['form']);
         }
 
@@ -124,6 +125,12 @@ class controller
         $view = new Template();
         echo $view->render('views/services.html');
     }
+    public function allBids()
+    {
+        $view = new Template();
+        echo $view->render('views/adminBidPage.html');
+    }
+
     public function login(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $correctUser ='admin';
