@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Top Refinishing</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/bb7ac2ffe5.js" crossorigin="anonymous"></script>
     <include href="includes/header.html"></include>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navBar">
     <div class="container">
-        <a class="navbar-brand" href="{{@base}}">
+        <a class="navbar-brand" href="{{ @BASE }}">
             Top Refinishing
             <i class="fas fa-city"></i>
         </a>
-        <a href="admin" class="navbar-btn btn pull-right"><i class="fas fa-user-cog" style="font-size: 30px">Admin</i></a>
+        <a href="admin" class="navbar-brand pull-right"><i class="fas fa-user-cog" style="font-size: 30px">Admin</i></a>
     </div>
 </nav>
 <div class="container mt-5">
-    <h1 id="aboutUs">About Us</h1>
+    <h1 id="aboutUs" class="pt-4">About Us</h1>
     <p class="m-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis accumsan nisl quis imperdiet. Duis blandit, dolor at molestie posuere,
         quam orci venenatis turpis, ac hendrerit nulla magna quis odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
         himenaeos. Suspendisse cursus at nulla molestie imperdiet. Etiam lacinia id sapien id mattis. Etiam eleifend risus ut nisi lacinia, ac interdum elit
@@ -68,7 +61,9 @@
 </div>
 <hr>
 <div class="container text-center form-group p-5">
+    <div class="jumbotron">
     <h1 id="contact">Contact Us</h1>
+
     <form method="post" action="#">
         <label for="name">Name </label>
         <input type="text" id="name" name="name" class="form-control"><br>
@@ -105,11 +100,8 @@
         </select>
         <button type="submit" class="btn-primary mt-5">Submit</button>
     </form>
-</div>
-<div class="navbar navbar-default navbar-fixed-bottom bg-dark">
-    <div class="container">
-        <p class="navbar-text pull-left">
-        </p>
     </div>
+</div>
+
 </body>
 </html>
