@@ -95,7 +95,6 @@ class controller
             $GLOBALS['database']->addClient($_SESSION['form']);
         }
 
-        print_r($_SESSION['form']);
         $view = new Template();
         echo $view->render('views/thankYouPage.html');
     }

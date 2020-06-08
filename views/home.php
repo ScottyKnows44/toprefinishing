@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/bb7ac2ffe5.js" crossorigin="anonymous"></script>
+    <include href="includes/header.html"></include>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navBar">
@@ -90,9 +91,11 @@
                      {{ @errors['phone'] }}<br>
                 </check>
             </span>
+
         <label for="contactMethod">Contact method</label><br>
-        <input type="radio" id="contactMethod" name="contact"class="m-2">Email
-        <input type="radio" name="contact" class="m-2">Phone<br>
+        <input type="radio" id="contactMethod" name="contact" class="m-2" value="email">Email
+        <input type="radio" name="contact" class="m-2" value="phone">Phone<br>
+
         <label for="services">Services: </label>
         <select name="services" class="form-control">
             <option name="services[]" value="" >Select--</option>
