@@ -58,7 +58,7 @@ class Client
         $this->_contactMethod = $contactMethod;
     }
 
-    public function getServices(){
+    public function getService(){
         return $this->_service;
     }
 

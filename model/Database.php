@@ -34,7 +34,7 @@ class Database
 
     function addService($service)
     {
-        //$this->_dbh= $this->connect();
+
         $sql = "INSERT INTO services(serviceType) VALUES (:service)";
         $statement = $this->_dbh->prepare($sql);
 
@@ -43,27 +43,35 @@ class Database
     }
 
 
-    function addToBidTable($bid){
-        $sql = "INSERT INTO bid(client_ID, service_ID, description, price) VALUES (:name, :service, :description, :price)";
+    function addToBidTable($bid, $id){
+
+        //get the id of the requested service
+        $sql = "select service_ID FROM services where serviceType = :type";
         $statement = $this->_dbh->prepare($sql);
 
-        $statement->bindParam('name', $bid->getName());
-        $statement->bindParam('service', $bid->getService());
-        $statement->bindParam('description', $bid->getDescription());
-        $statement->bindParam('price', $bid->getPrice());
+        $statement->bindParam('service', $bid->getService(), PDO::PARAM_STR);
+
         $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC)['service_ID'];
+
+        //prepare to insert new bid
+        $sql = "INSERT INTO bids(client_ID, service_ID, description, price) VALUES (:name, :service, :description, :price)";
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->bindParam('name', $id, PDO::PARAM_INT);
+        $statement->bindParam('service', $result, PDO::PARAM_INT);
+        $statement->bindParam('description', $bid->getDescription(), PDO::PARAM_STR);
+        $statement->bindParam('price', $bid->getPrice(), PDO::PARAM_INT);
+        $statement->execute();
+
     }
+
     function getAllBids(){
         $sql = "SELECT * FROM bids";
 
         $statement = $this->_dbh->prepare($sql);
 
-        /*
-        $statement->bindParam('client_id', $dbh->getName());
-        $statement->bindParam('service_id', $dbh->getService());
-        $statement->bindParam('price', $dbh->getPrice());
-        $statement->bindParam('description', $dbh->getDescription());
-            */
+
         $result = $statement->execute();
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -73,7 +81,7 @@ class Database
     }
 
     function addClient($client){
-        //$this->_dbh= $this->connect();
+
 
         $sql ="INSERT INTO client(name, phone, email, contactMethod) VALUES (:name, :phone, :email, :contactMethod)";
 
@@ -85,6 +93,10 @@ class Database
         $statement->bindParam('contactMethod', $client->getContactMethod());
 
         $statement->execute();
+
+        $statement = $this->_dbh->prepare("SELECT Auto_increment FROM information_schema.tables WHERE table_name='client'");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC)['Auto_increment']-1;
     }
 
     function getServices()

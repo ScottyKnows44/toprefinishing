@@ -87,12 +87,10 @@ class controller
     }
     public function confirmation()
     {
+        $connect = $this->_database->connect();
+        $id = $GLOBALS['database']->addClient($_SESSION['form']);
         if($_SESSION['form'] instanceof Bid){
-            $connect = $this->_database->connect();
-            $GLOBALS['database']->addClient($_SESSION['form']);
-        } else{
-            $connect = $this->_database->connect();
-            $GLOBALS['database']->addClient($_SESSION['form']);
+            $GLOBALS['database']->addToBidTable($_SESSION['form'], $id);
         }
 
         $view = new Template();
@@ -126,6 +124,7 @@ class controller
     }
     public function allBids()
     {
+
         $result = $GLOBALS['database']->getAllBids();
         $this->_f3->set('bids', $result);
         $view = new Template();
