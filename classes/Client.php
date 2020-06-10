@@ -7,13 +7,15 @@ class Client
     private $_email;
     private $_phone;
     private $_contactMethod;
+    private $_service;
 
-    public function __construct($name, $email, $phone, $contactMethod)
+    public function __construct($name, $email, $phone, $contactMethod, $service)
     {
             $this->setName($name);
             $this->setEmail($email);
             $this->setPhone($phone);
             $this->setContactMethod($contactMethod);
+            $this->setService($service);
     }
 
     public function getName(){
@@ -56,4 +58,11 @@ class Client
         $this->_contactMethod = $contactMethod;
     }
 
+    public function getServices(){
+        return $this->_service;
+    }
+
+    public function setService($service){
+        $this->_service = $service;
+    }
 }

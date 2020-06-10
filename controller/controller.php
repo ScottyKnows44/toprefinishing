@@ -47,11 +47,11 @@ class controller
             if(empty($this->_f3->get('errors'))){
 
                 if(isset($bid)){
-                    $_SESSION['form']= new Bid($name,$email,$phone,$contact);
+                    $_SESSION['form']= new Bid($name,$email,$phone,$contact, $services);
                     $this->_f3->reroute('/bid');
                 }
                 else{
-                    $_SESSION['form'] = new Client($name,$email,$phone,$contact);
+                    $_SESSION['form'] = new Client($name,$email,$phone,$contact, $services);
                     $this->_f3->reroute('/thankYou');
                 }
             }
@@ -126,6 +126,8 @@ class controller
     }
     public function allBids()
     {
+        $result = $GLOBALS['database']->getAllBids();
+        $this->_f3->set('bids', $result);
         $view = new Template();
         echo $view->render('views/adminBidPage.html');
     }

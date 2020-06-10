@@ -53,7 +53,16 @@
         <repeat group="{{ @clients }}" value="{{ @client }}">
             <tr>
                 <td>{{ @client['client_ID']}}</td>
-               <td> <a href="bidTable">{{ @client['name'] }}</a></td>
+               <td>
+                  <check if="'form' instanceof Bid">
+                      <true>
+                          <a href="bidTable">{{ @client['name'] }}</a>
+                      </true>
+                      <false>
+                          {{ @client['name'] }}
+                      </false>>
+                  </check>>
+               </td>
                 <td>{{ @client['phone'] }}</td>
                 <td>{{ @client['email'] }}</td>
                 <td>{{ @client['contactMethod'] }}</td>

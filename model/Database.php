@@ -42,14 +42,34 @@ class Database
         $statement->execute();
     }
 
-    function addToBidTable($dbh){
-        $sql ="INSERT INTO bids(client_ID, service_ID, description, price) VALUES (:name, :service, :description, :price)";
+
+    function addToBidTable($bid){
+        $sql = "INSERT INTO bid(client_ID, service_ID, description, price) VALUES (:name, :service, :description, :price)";
         $statement = $this->_dbh->prepare($sql);
 
+        $statement->bindParam('name', $bid->getName());
+        $statement->bindParam('service', $bid->getService());
+        $statement->bindParam('description', $bid->getDescription());
+        $statement->bindParam('price', $bid->getPrice());
+        $statement->execute();
+    }
+    function getAllBids(){
+        $sql = "SELECT * FROM bids";
+
+        $statement = $this->_dbh->prepare($sql);
+
+        /*
+        $statement->bindParam('client_id', $dbh->getName());
+        $statement->bindParam('service_id', $dbh->getService());
         $statement->bindParam('price', $dbh->getPrice());
         $statement->bindParam('description', $dbh->getDescription());
+            */
+        $result = $statement->execute();
 
-        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+
     }
 
     function addClient($client){

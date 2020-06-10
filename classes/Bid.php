@@ -6,9 +6,9 @@ class Bid extends Client
     private $_description;
     private $_price;
 
-    public function __construct($name, $email, $phone, $contactMethod)
+    public function __construct($name, $email, $phone, $contactMethod, $service)
     {
-        parent::__construct($name, $email, $phone, $contactMethod);
+        parent::__construct($name, $email, $phone, $contactMethod, $service);
     }
 
    public function setDescription($description){
