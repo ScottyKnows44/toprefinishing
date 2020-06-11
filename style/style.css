@@ -1,4 +1,17 @@
 p h1 h3 {
     font-family: 'Josefin Sans', sans-serif;
 }
+body, html{
+    height: 100%;
+}
+body{
+     background-color: #E8E9EB;
+    height: 100%;
+ }
+.jumbotron{
+    background-color: #8590AA;
+}
+.list-group-item{
+    background-color: #8590AA;
+}
 
