@@ -49,10 +49,10 @@ class Database
         $sql = "select service_ID FROM services where serviceType = :type";
         $statement = $this->_dbh->prepare($sql);
 
-        $statement->bindParam('type', $bid->getService(), PDO::PARAM_STR);
+        $statement->bindParam('type', $bid->getService());
 
         $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC)['service_ID'];
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         //prepare to insert new bid
         $sql = "INSERT INTO bids(client_ID, service_ID, description, price) VALUES (:name, :service, :description, :price)";
@@ -83,7 +83,7 @@ class Database
     function addClient($client){
 
 
-        $sql ="INSERT INTO client(name, phone, email, contactMethod) VALUES (:name, :phone, :email, :contactMethod)";
+        $sql ="INSERT INTO client(name, phone, email, contactMethod, service) VALUES (:name, :phone, :email, :contactMethod, :serviceSelected)";
 
         $statement = $this->_dbh->prepare($sql);
 
@@ -91,6 +91,7 @@ class Database
         $statement->bindParam('phone', $client->getPhone());
         $statement->bindParam('email', $client->getEmail(), PDO::PARAM_STR);
         $statement->bindParam('contactMethod', $client->getContactMethod(), PDO::PARAM_STR);
+        $statement->bindParam('serviceSelected', $client->getService(), PDO::PARAM_STR);
 
         $statement->execute();
 

@@ -86,9 +86,9 @@
             <label for="services">Services: </label>
             <select name="services" class="form-control">
                 <option name="services[]" value="" >Select--</option>
-                <option name="services[]" value="bathtub">Bathtub</option>
-                <option name="services[]" value="countertop">Countertop Refinishing</option>
-                <option name="services[]" value="tilesurround">Tile Surround</option>
+                <option name="services[]" value="Bathtub">Bathtub</option>
+                <option name="services[]" value="Countertop refinishing">Countertop refinishing</option>
+                <option name="services[]" value="Tile Surround">Tile Surround</option>
             </select>
             <button type="submit" class="btn-primary mt-5">Submit</button>
         </form>

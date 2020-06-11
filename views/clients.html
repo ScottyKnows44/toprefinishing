@@ -48,24 +48,26 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Preferred Contact</th>
-
+            <th>Service</th>
         </tr>
+
         <repeat group="{{ @clients }}" value="{{ @client }}">
             <tr>
                 <td>{{ @client['client_ID']}}</td>
                <td>
-                  <check if="'form' instanceof Bid">
+                  <check if="{{ @client['service') != '' }}">
                       <true>
                           <a href="bidTable">{{ @client['name'] }}</a>
                       </true>
                       <false>
                           {{ @client['name'] }}
-                      </false>>
-                  </check>>
+                      </false>
+                  </check>
                </td>
                 <td>{{ @client['phone'] }}</td>
                 <td>{{ @client['email'] }}</td>
                 <td>{{ @client['contactMethod'] }}</td>
+                <td>{{ @client['service'] }}</td>
             </tr>
         </repeat>
 
