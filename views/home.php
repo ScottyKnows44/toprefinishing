@@ -9,6 +9,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/bb7ac2ffe5.js" crossorigin="anonymous"></script>
     <link href="style/style.css" rel="stylesheet">
+<<<<<<< HEAD
     <!--    <style> .container-fluid{-->
     <!--            background-image: linear-gradient(gray,white);-->
     <!--           }-->
@@ -39,11 +40,44 @@
             King County for more than 20 years. We offer various services to improve our clients homes and make it a much better place to live in.</p>
         <div class="container text-center">
             <h1 id="services">Services</h1>
+=======
+<!--    <style> .container-fluid{-->
+<!--            background-image: linear-gradient(gray,white);-->
+<!--           }-->
+<!--        .jumbotron{-->
+<!--            background-color: #8590AA;-->
+<!--        }-->
+<!--        .list-group-item{-->
+<!--            background-color: #8590AA;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<div class="container-fluid">
+<div class="container p-3">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navBar">
+    <div class="container">
+        <a class="navbar-brand" href="{{@base}}">
+            Top Refinishing
+            <i class="fas fa-city"></i>
+        </a>
+        <a href="admin" class="navbar-brand btn pull-right"><i class="fas fa-user-cog" style="font-size: 30px">Admin</i></a>
+    </div>
+</nav>
+</div>
+<div class="container mt-5 jumbotron">
+    <h1 id="aboutUs">About Us</h1>
+    <p class="m-2 text-justify">Top Refinishing is a family owned business that's been working for the people in
+    King County for more than 20 years. We offer various services to improve our clients homes and make it a much better place to live in.</p>
+    <div class="container text-center">
+        <h1 id="services">Services</h1>
+>>>>>>> 20c09c3fd7d54e0097ac88cda035d388f83dc50e
             <ul class="list-group list-group-flush w-auto">
                 <li class="list-group-item">Bathtub</li>
                 <li class="list-group-item">Countertop refinishing</li>
                 <li class="list-group-item">Tile Surround</li>
             </ul>
+<<<<<<< HEAD
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -52,6 +86,15 @@
                     <div class="carousel-item">
                         <img src="images/beforeandafter2.jpg" class="d-block w-50 mx-auto" alt="...">
                     </div>
+=======
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/beforeandafter1.jpg" class="d-block w-50 mx-auto" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/beforeandafter2.jpg" class="d-block w-50 mx-auto" alt="...">
+>>>>>>> 20c09c3fd7d54e0097ac88cda035d388f83dc50e
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -64,6 +107,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <hr>
     <div class="container text-center form-group p-5 jumbotron">
         <h1 id="contact">Contact Us</h1>
@@ -71,6 +115,16 @@
             <label for="name">Name </label>
             <input type="text" id="name" name="name" class="form-control"><br>
             <span class="err">
+=======
+</div>
+<hr>
+<div class="container text-center form-group p-5 jumbotron">
+    <h1 id="contact">Contact Us</h1>
+    <form method="post" action="#">
+        <label for="name">Name </label>
+        <input type="text" id="name" name="name" class="form-control"><br>
+        <span class="err">
+>>>>>>> 20c09c3fd7d54e0097ac88cda035d388f83dc50e
                 <check if="{{ isset(@errors['name']) }}">
                      {{ @errors['name'] }}<br>
                 </check>
@@ -89,6 +143,7 @@
                      {{ @errors['phone'] }}<br>
                 </check>
             </span>
+<<<<<<< HEAD
             <label for="contactMethod">Contact method</label><br>
             <input type="radio" id="contactMethod" name="contact"class="m-2">Email
             <input type="radio" name="contact" class="m-2">Phone<br>
@@ -104,5 +159,21 @@
         </form>
     </div>
 </div>
+=======
+        <label for="contactMethod">Contact method</label><br>
+        <input type="radio" id="contactMethod" name="contact"class="m-2">Email
+        <input type="radio" name="contact" class="m-2">Phone<br>
+        <label for="services">Services: </label>
+        <select name="services" class="form-control">
+            <option name="services[]" value="" >Select--</option>
+            <option name="services[]" value="bathtub">Bathtub</option>
+            <option name="services[]" value="countertop">Countertop Refinishing</option>
+            <option name="services[]" value="tilesurround">Tile Surround</option>
+        </select>
+        <button type="submit" class="btn-primary mt-5">Submit</button>
+    </form>
+</div>
+</div>
+>>>>>>> 20c09c3fd7d54e0097ac88cda035d388f83dc50e
 </body>
 </html>
