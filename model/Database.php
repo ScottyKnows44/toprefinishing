@@ -49,7 +49,7 @@ class Database
         $sql = "select service_ID FROM services where serviceType = :type";
         $statement = $this->_dbh->prepare($sql);
 
-        $statement->bindParam('service', $bid->getService(), PDO::PARAM_STR);
+        $statement->bindParam('type', $bid->getService(), PDO::PARAM_STR);
 
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC)['service_ID'];
@@ -62,15 +62,15 @@ class Database
         $statement->bindParam('service', $result, PDO::PARAM_INT);
         $statement->bindParam('description', $bid->getDescription(), PDO::PARAM_STR);
         $statement->bindParam('price', $bid->getPrice(), PDO::PARAM_INT);
+
         $statement->execute();
 
     }
 
-    function getAllBids(){
-        $sql = "SELECT * FROM bids";
+    function getClientsBid(){
+        $sql = "SELECT * FROM bids WHERE client_ID = :type";
 
         $statement = $this->_dbh->prepare($sql);
-
 
         $result = $statement->execute();
 
@@ -87,21 +87,22 @@ class Database
 
         $statement = $this->_dbh->prepare($sql);
 
-        $statement->bindParam('name', $client->getName());
+        $statement->bindParam('name', $client->getName(), PDO::PARAM_STR);
         $statement->bindParam('phone', $client->getPhone());
-        $statement->bindParam('email', $client->getEmail());
-        $statement->bindParam('contactMethod', $client->getContactMethod());
+        $statement->bindParam('email', $client->getEmail(), PDO::PARAM_STR);
+        $statement->bindParam('contactMethod', $client->getContactMethod(), PDO::PARAM_STR);
 
         $statement->execute();
 
         $statement = $this->_dbh->prepare("SELECT Auto_increment FROM information_schema.tables WHERE table_name='client'");
         $statement->execute();
+
         return $statement->fetchAll(PDO::FETCH_ASSOC)['Auto_increment']-1;
     }
 
     function getServices()
     {
-        //$this->_dbh= $this->connect();
+
         $sql = "SELECT * FROM services";
         $statement = $this->_dbh->prepare($sql);
 
@@ -114,8 +115,6 @@ class Database
 
     function showClients()
     {
-        //$this->_dbh= $this->connect();
-
         $sql = "SELECT * FROM client";
         $statement = $this->_dbh->prepare($sql);
         $result = $statement->execute();

@@ -17,6 +17,7 @@ class controller
     public function home()
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            var_dump($_POST);
             //set one call
             $name=$_POST['name'];
             $email=$_POST['email'];
@@ -30,7 +31,7 @@ class controller
             $_SESSION['contact']=$contact;
 
             if(!empty($services)){
-                $_SESSION['services']=$services;
+                $_SESSION['services'] = $services;
 
                 $bid=true;
 
@@ -92,7 +93,6 @@ class controller
         if($_SESSION['form'] instanceof Bid){
             $GLOBALS['database']->addToBidTable($_SESSION['form'], $id);
         }
-
         $view = new Template();
         echo $view->render('views/thankYouPage.html');
     }
