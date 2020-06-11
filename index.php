@@ -12,6 +12,7 @@ $controller = new controller($f3, $database, $validator);
 
 //run $f3
 $f3->route('GET|POST / ', function(){
+
     $GLOBALS['controller']->home();
 });
 
