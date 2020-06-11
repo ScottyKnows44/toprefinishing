@@ -9,16 +9,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/bb7ac2ffe5.js" crossorigin="anonymous"></script>
     <link href="style/style.css" rel="stylesheet">
-<!--    <style> .container-fluid{-->
-<!--            background-image: linear-gradient(gray,white);-->
-<!--           }-->
-<!--        .jumbotron{-->
-<!--            background-color: #8590AA;-->
-<!--        }-->
-<!--        .list-group-item{-->
-<!--            background-color: #8590AA;-->
-<!--        }-->
-<!--    </style>-->
+
 </head>
 <body>
 <div class="container-fluid">
