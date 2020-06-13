@@ -101,6 +101,10 @@ class Database
         return $statement->fetchAll(PDO::FETCH_ASSOC)['Auto_increment']-1;
     }
 
+    function getClientId(){
+
+    }
+
     function getServices()
     {
 

@@ -124,8 +124,7 @@ class controller
     }
     public function allBids()
     {
-
-        $result = $GLOBALS['database']->getAllBids();
+        $result = $GLOBALS['database']->getClientsBid();
         $this->_f3->set('bids', $result);
         $view = new Template();
         echo $view->render('views/adminBidPage.html');
