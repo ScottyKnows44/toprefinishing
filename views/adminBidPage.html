@@ -39,32 +39,28 @@
 </nav>
 <div class="container">
 
-    <h3 class="mt-2">Client Information Bid Table</h3>
-    <form class="jumbotron text-center" method="post" action="#">
+    <h3 class="mt-2">Client Information Table</h3>
+    <table id="student-table">
+        <thead>
+        <tr>
+            <th>Biding ID</th>
+            <th>Client ID</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
 
-        <label for="name">Name </label>
-        <input type="text" id="name" name="name" class="form-control"><br>
+        <repeat group="{{ @clients }}" value="{{ @client }}">
+            <tr>
+                <td></td>
+                <td>{{ @client['client_ID']}}</td>
+                <td>{{ @client['phone'] }}</td>
+                <td>{{ @client['email'] }}</td>
+                <td>{{ @client['contactMethod'] }}</td>
+            </tr>
+        </repeat>
 
-        <label for="services">Services: </label>
-        <select id="services" name="services" class="form-control">
-            <option name="services[]" value="" >Select--</option>
-            <option name="services[]" value="bathtub">Bathtub</option>
-            <option name="services[]" value="countertop">Countertop Refinishing</option>
-            <option name="services[]" value="tilesurround">Tile Surround</option>
-        </select>
-
-        <div class="form-group">
-            <label for="description">Description of the service you require </label><br>
-            <textarea class="w-75" type="text" id="description" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="price">Your asking price for this service </label>
-            <input  type="number" id="price" name="price" class="w-25"><br>
-        </div>
-
-    </form>
+    </table>
     <p><a href="admin">Admin Home page</a></p>
-    <p><a href="clients">Back to clients page</a></p>
 </div>
 
 <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>

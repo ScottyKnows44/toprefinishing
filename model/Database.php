@@ -67,10 +67,12 @@ class Database
 
     }
 
-    function getClientsBid(){
+    function getClientsBid($id){
         $sql = "SELECT * FROM bids WHERE client_ID = :type";
 
         $statement = $this->_dbh->prepare($sql);
+
+        $statement->bindParam('type', $id);
 
         $result = $statement->execute();
 
@@ -81,7 +83,6 @@ class Database
     }
 
     function addClient($client){
-
 
         $sql ="INSERT INTO client(name, phone, email, contactMethod, service) VALUES (:name, :phone, :email, :contactMethod, :serviceSelected)";
 
@@ -101,8 +102,16 @@ class Database
         return $statement->fetchAll(PDO::FETCH_ASSOC)['Auto_increment']-1;
     }
 
-    function getClientId(){
+    function getClientId($object){
+        $sql = "SELECT client_ID FROM `client` WHERE name = :selectedName";
 
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->bindParam('selectedName', $object->getName(), PDO::PARAM_STR);
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
     function getServices()
