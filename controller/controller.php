@@ -89,11 +89,11 @@ class controller
     public function confirmation()
     {
         $connect = $this->_database->connect();
-        //$GLOBALS['database']->addClient($_SESSION['form']);
-        echo$GLOBALS['database']-> getId();
-       // if($_SESSION['form'] instanceof Bid){
-         //   $GLOBALS['database']->addToBidTable($_SESSION['form'], $id);
-       // }
+        $GLOBALS['database']->addClient($_SESSION['form']);
+        $id = $GLOBALS['database']-> getId();
+        if($_SESSION['form'] instanceof Bid){
+          $GLOBALS['database']->addToBidTable($_SESSION['form'], $id);
+       }
         $view = new Template();
         echo $view->render('views/thankYouPage.html');
     }

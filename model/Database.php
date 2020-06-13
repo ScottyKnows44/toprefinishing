@@ -18,7 +18,7 @@ class Database
                 require '/home/sthompso/config.php';
             } else if($_SERVER['USER'] == 'tschloss'){
                 require '/home/tschloss/config.php';
-            } else if($_SERVER['USER'] == 'aatadina'){
+            } else{
                 require '/home/aatadina/config.php';
             }
             $this->_dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
@@ -52,7 +52,7 @@ class Database
         $statement->bindParam('type', $bid->getService());
 
         $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $result = $statement->fetch(PDO::FETCH_ASSOC)['service_ID'];
 
         //prepare to insert new bid
         $sql = "INSERT INTO bids(client_ID, service_ID, description, price) VALUES (:name, :service, :description, :price)";
@@ -102,7 +102,7 @@ class Database
         $state2 = $this->_dbh->prepare("SELECT Auto_increment FROM information_schema.tables WHERE table_name='client'");
         $state2->execute();
 
-        return $state2->fetchAll(PDO::FETCH_ASSOC)['Auto_increment']-1;
+        return $state2->fetch(PDO::FETCH_ASSOC)['Auto_increment']-1;
     }
 
     function getClientId($object){
