@@ -89,10 +89,11 @@ class controller
     public function confirmation()
     {
         $connect = $this->_database->connect();
-        $id = $GLOBALS['database']->addClient($_SESSION['form']);
-        if($_SESSION['form'] instanceof Bid){
-            $GLOBALS['database']->addToBidTable($_SESSION['form'], $id);
-        }
+        //$GLOBALS['database']->addClient($_SESSION['form']);
+        echo$GLOBALS['database']-> getId();
+       // if($_SESSION['form'] instanceof Bid){
+         //   $GLOBALS['database']->addToBidTable($_SESSION['form'], $id);
+       // }
         $view = new Template();
         echo $view->render('views/thankYouPage.html');
     }
@@ -124,10 +125,14 @@ class controller
     }
     public function allBids()
     {
-        $result = $GLOBALS['database']->getClientsBid();
+        $bid=$GLOBALS['database']->getClientId($_GET['name']);
+        $result = $GLOBALS['database']->getClientsBid($bid);
         $this->_f3->set('bids', $result);
         $view = new Template();
         echo $view->render('views/adminBidPage.html');
+        echo "ID: ".$bid.",  ";
+        echo ($_GET['name']);
+        var_dump($result);
     }
 
     public function login(){
@@ -135,10 +140,11 @@ class controller
             $correctUser ='admin';
             $correctPass='@dm1n';
             if($correctUser!==$_POST['username']){
-                echo "Invalid Username";
+                $this->_f3->set("errors[username]","Invalid Username");
+                echo "";
             }
             if($correctPass!==$_POST['password']){
-                echo "invalid Password";
+                $this->_f3->set("errors[password]","invalid Password");
             }
             if($correctUser==$_POST['username']&&$correctPass==$_POST['password']) {
                 session_start();

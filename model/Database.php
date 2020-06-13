@@ -74,7 +74,7 @@ class Database
 
         $statement->bindParam('type', $id);
 
-        $result = $statement->execute();
+        $statement->execute();
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -96,10 +96,13 @@ class Database
 
         $statement->execute();
 
-        $statement = $this->_dbh->prepare("SELECT Auto_increment FROM information_schema.tables WHERE table_name='client'");
-        $statement->execute();
+    }
 
-        return $statement->fetchAll(PDO::FETCH_ASSOC)['Auto_increment']-1;
+    function getId(){
+        $state2 = $this->_dbh->prepare("SELECT Auto_increment FROM information_schema.tables WHERE table_name='client'");
+        $state2->execute();
+
+        return $state2->fetchAll(PDO::FETCH_ASSOC)['Auto_increment']-1;
     }
 
     function getClientId($object){
@@ -107,11 +110,13 @@ class Database
 
         $statement = $this->_dbh->prepare($sql);
 
-        $statement->bindParam('selectedName', $object->getName(), PDO::PARAM_STR);
+        $statement->bindParam('selectedName', $object, PDO::PARAM_STR);
 
         $statement->execute();
 
+
         return $statement->fetchAll(PDO::FETCH_ASSOC);
+
     }
 
     function getServices()
@@ -136,4 +141,7 @@ class Database
         return $result;
     }
 
+
 }
+
+

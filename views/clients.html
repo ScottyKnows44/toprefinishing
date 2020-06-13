@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Toprefinishing Admin</title>
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style/business-frontpage.css" rel="stylesheet">
+    <include href="includes/header.html"></include>
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/1f2bc43dbd.js" crossorigin="anonymous"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 </head>
@@ -55,9 +47,9 @@
             <tr>
                 <td>{{ @client['client_ID']}}</td>
                <td>
-                  <check if="{{ @client['service'] != '' }}">
+                  <check if="{{ @client['service'] != ''&&@client['service'] != 'NOT NULL' }}">
                       <true>
-                          <a href="bidTable">{{ @client['name'] }}</a>
+                          <a href="bidTable?name={{ @client['name'] }}">{{ @client['name'] }}</a>
                       </true>
                       <false>
                           {{ @client['name'] }}
