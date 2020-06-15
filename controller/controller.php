@@ -125,14 +125,22 @@ class controller
     }
     public function allBids()
     {
-        $bid=$GLOBALS['database']->getClientId($_GET['name']);
-        $result = $GLOBALS['database']->getClientsBid($bid);
+
+        for ($i=0;$i<sizeof($GLOBALS['database']->getClientId($_GET['name']));$i++) {
+            $bid[] = $GLOBALS['database']->getClientId($_GET['name'])[$i];
+        }
+            for($j=0;$j<sizeof($bid);$j++) {
+//                echo "ID: ".$bid[$j]['client_ID'].",  ";
+                $result[] = $GLOBALS['database']->getClientsBid($bid[$j]['client_ID']);
+
+            }
         $this->_f3->set('bids', $result);
+
         $view = new Template();
         echo $view->render('views/adminBidPage.html');
-        echo "ID: ".$bid.",  ";
-        echo ($_GET['name']);
-        var_dump($result);
+//        echo "ID: ".$bid[0]['client_ID'].",  ";
+//        echo ($_GET['name']);
+//        var_dump($result);
     }
 
     public function login(){

@@ -45,19 +45,20 @@
         <tr>
             <th>Biding ID</th>
             <th>Client ID</th>
+            <th>Service ID</th>
             <th>Description</th>
             <th>Price</th>
         </tr>
-
-        <repeat group="{{ @clients }}" value="{{ @client }}">
-            <tr>
-                <td></td>
-                <td>{{ @client['client_ID']}}</td>
-                <td>{{ @client['phone'] }}</td>
-                <td>{{ @client['email'] }}</td>
-                <td>{{ @client['contactMethod'] }}</td>
-            </tr>
+        <repeat group="{{@bids}}" value="{{@bid}}">
+        <tr>
+            <td>{{@bid[0]['bid_ID']}}</td>
+            <td>{{@bid[0]['client_ID']}}</td>
+            <td>{{@bid[0]['service_ID']}}</td>
+            <td>{{@bid[0]['description']}}</td>
+            <td>{{@bid[0]['price']}}</td>
+        </tr>
         </repeat>
+
 
     </table>
     <p><a href="admin">Admin Home page</a></p>
